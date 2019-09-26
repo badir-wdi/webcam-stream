@@ -1,31 +1,28 @@
 <html>
   <head>
-    <style>
-      .hidden { display : none; }
-      .container { width : 100%; }
-      .center { display : block; margin : auto; }
-      #webcam_preview {
-        display : inline;
-        height: 200px;
-      }
-      #chartdiv {
-          width: 100%;
-          height: 50%;
-          border: 1px solid black
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="mystyle.css"/>
   </head>
   <body>
   
     <!-- Main page content -->
     <video id="webcam_preview"  autoplay></video>
+    <div class="chart">
+      <canvas id="myChart" width="50%" height="100%"></canvas>
+    </div>
+    
+    <!-- Hidden -->
     <img id="img_snapshot" src="" class="hidden"/>
     <div class="hidden" class="container"><img class="hidden" class="center" id="advertisement" src="man.jpg"/></div>
-    <div id="chartdiv"></div>
+    
+    <!-- Api -->
     <script src="FACE-1.0.js">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-    </script> 
+    </script>
+
+     <!-- Chart  -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
     <script src="index.js"></script>   
   </body>
 </html>
