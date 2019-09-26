@@ -2,11 +2,25 @@
   options.app_key = '9a3470f7c66c4d69ad5255f133c1e3ee';
   options.onSuccessCallback = success;
   options.onFailureCallback = failure;
-  
+  const emotions = {
+    anger: 0, 
+    disgust: 0, 
+    fear: 0, 
+    happiness: 0, 
+    sadness: 0, 
+    surprise: 0,
+    count: 0
+  }
 
 function success( result ) {
     const {anger, disgust, fear, happiness, sadness, surprise} = result.people[0].emotions
-
+    emotions.count++
+    emotions.anger = (emotions.anger + anger) / emotions.count
+    emotions.disgust = (emotions.disgust + disgust) / emotions.count
+    emotions.fear = (emotions.fear + fear) / emotions.count
+    emotions.happiness = (emotions.happiness + happiness) / emotions.count
+    emotions.sadness = (emotions.sadness + sadness) / emotions.count
+    emotions.surprise = (emotions.surprise + surprise) / emotions.count
     // Here put your chart
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -51,6 +65,23 @@ function success( result ) {
         
 
     });
+    new Chart(document.getElementById("pie-chart"), {
+      type: 'pie',
+      data: {
+        labels: ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise'],
+        datasets: [{
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [emotions.anger, emotions.disgust, emotions.fear, emotions.happiness, emotions.sadness, emotions.surprise]
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Predicted world population (millions) in 2050'
+        }
+      }
+    });
 }
 
 function failure( errorCode, errorString ) {
@@ -84,3 +115,7 @@ $( document ).ready( function() {
     startCapture();
   }
 });
+
+
+
+
