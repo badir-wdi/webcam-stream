@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      .hidden { display : none; }
+      .container { width : 100%; }
+      .center { display : block; margin : auto; }
+      #webcam_preview {
+        display : inline;
+        height: 200px;
+      }
+      #chartdiv {
+          width: 100%;
+          height: 50%;
+          border: 1px solid black
+      }
+    </style>
+  </head>
+  <body>
+  
+    <!-- Main page content -->
+    <video id="webcam_preview"  autoplay></video>
+    <img id="img_snapshot" src="" class="hidden"/>
+    <div class="hidden" class="container"><img class="hidden" class="center" id="advertisement" src="man.jpg"/></div>
+    <div id="chartdiv"></div>
+    <script src="FACE-1.0.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+    </script> 
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="index.js"></script>   
+  </body>
+</html>
