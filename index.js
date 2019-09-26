@@ -1,6 +1,3 @@
-am4core.ready(function() {
-  // FOR JAVASCRIPT DEMONSTRATION PURPUSES ONLY,
-  // NEVER DISCLOSE YOUR KEY TO THIRD PARTIES!
   var options = {};
   options.app_key = '9a3470f7c66c4d69ad5255f133c1e3ee';
   options.onSuccessCallback = success;
@@ -97,11 +94,8 @@ am4core.ready(function() {
   // Trigger the start
   $( document ).ready( function() {
     if( options.app_key == '' ) {
-      // alert( 'Please specify your keys in the source' );
+      alert( 'Please specify your keys in the source' );
     } else {
       startCapture();
     }
   });
-  // labels: ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise']
-                
-                }); // end am4core.ready()
